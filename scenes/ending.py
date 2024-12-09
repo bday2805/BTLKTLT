@@ -9,14 +9,14 @@ class EndGameScene:
         self.bg_image = pygame.transform.scale(pygame.image.load(bg_image), (SCREEN_WIDTH, SCREEN_HEIGHT))
 
         # Load and resize buttons
-        self.button_play_again = pygame.transform.scale(pygame.image.load("assets/restart.png"), (180, 80))
-        self.button_main_menu = pygame.transform.scale(pygame.image.load("assets/home_icon.png"), (180, 80))
+        self.button_play_again = pygame.transform.scale(pygame.image.load("assets/back_icon.png"), (330, 210))
+        self.button_main_menu = pygame.transform.scale(pygame.image.load("assets/home_icon.png"), (80, 80))
         self.button_sound_on = pygame.transform.scale(pygame.image.load("assets/sound_icon.png"), (80, 80))
         self.button_sound_off = pygame.transform.scale(pygame.image.load("assets/mute_icon.png"), (80, 80))
 
         self.buttons = {
-            "play_again": self.button_play_again.get_rect(center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 50)),
-            "main_menu": self.button_main_menu.get_rect(center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 150)),
+            "play_again": self.button_play_again.get_rect(center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 110)),
+            "main_menu": self.button_main_menu.get_rect(topright=(SCREEN_WIDTH - 10, 10)),
             "sound": self.button_sound_on.get_rect(topright=(SCREEN_WIDTH - 100, 10)),
         }
 
@@ -54,7 +54,7 @@ class EndGameScene:
 class CongratulationsScene(EndGameScene):
     def __init__(self, screen, manager):
         # Load the correct background and play victory sound
-        super().__init__(screen, manager, "assets/end_background.jpg", self.play_victory_sound)
+        super().__init__(screen, manager, "assets/end_background.png", self.play_victory_sound)
 
     @staticmethod
     def play_victory_sound(music_player):
